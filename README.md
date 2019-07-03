@@ -26,5 +26,14 @@ The script will archive the `StaticLibrary`, archive & create .xcframework for `
 `Usage`
 
 ```
+./create_xcframeworks.sh OUTPUT_DIRECTORY_NAME
+```
+
+eg.
+```
 create_xcframeworks.sh Products
 ```
+
+# Presentation
+https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
+
