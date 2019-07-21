@@ -33,6 +33,7 @@
 		21D711FE22C1762800D62E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D7120822C179A500D62E4E /* Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sum.swift; sourceTree = "<group>"; };
 		21D7120A22C17A6700D62E4E /* Package */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Package; path = ../../Package; sourceTree = "<group>"; };
+		21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XCFrameworks.xcconfig; path = ../XCFrameworks.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		21D711E422C1762800D62E4E = {
 			isa = PBXGroup;
 			children = (
+				21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */,
 				21D711F022C1762800D62E4E /* DynamicFramework */,
 				21D711FB22C1762800D62E4E /* DynamicFrameworkTests */,
 				21D711EF22C1762800D62E4E /* Products */,
@@ -239,6 +241,7 @@
 /* Begin XCBuildConfiguration section */
 		21D7120022C1762800D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -302,6 +305,7 @@
 		};
 		21D7120122C1762800D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -359,6 +363,7 @@
 		};
 		21D7120322C1762800D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,7 +379,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baios.dynamicFramework.DynamicFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bielikb.DynamicFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -401,7 +406,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baios.dynamicFramework.DynamicFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bielikb.DynamicFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -412,6 +417,7 @@
 		};
 		21D7120622C1762800D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

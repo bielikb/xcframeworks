@@ -4,25 +4,19 @@ _$s16DynamicFrameworkAACML
 _$s16DynamicFrameworkAACMf
 _symbolic _____ 16DynamicFrameworkAAC
 _$s16DynamicFrameworkAACMF
-__swift_FORCE_LOAD_$_swiftFoundation_$_DynamicFramework
-__swift_FORCE_LOAD_$_swiftObjectiveC_$_DynamicFramework
-__swift_FORCE_LOAD_$_swiftDarwin_$_DynamicFramework
-__swift_FORCE_LOAD_$_swiftCoreFoundation_$_DynamicFramework
-__swift_FORCE_LOAD_$_swiftDispatch_$_DynamicFramework
-__swift_FORCE_LOAD_$_swiftCoreGraphics_$_DynamicFramework
 ___swift_reflection_version
 _objc_classes
-Apple clang version 11.0.0 (clang-1100.0.26.3)
+Apple clang version 11.0.0 (clang-1100.0.31.3)
 <swift-imported-modules>
 /Users/bbielik/Code/repos/own/XCFrameworks/DynamicFramework
-Apple Swift version 5.1 (swiftlang-1100.0.43.3 clang-1100.0.26.3)
+Apple Swift version 5.1 (swiftlang-1100.0.257.2 clang-1100.0.31.3)
 /Users/bbielik/Code/repos/own/XCFrameworks/DynamicFramework/DynamicFramework/Sum.swift
 deinit
 sum
 init
 $s16DynamicFrameworkAACMa
 <compiler-generated>
-Apple clang version 11.0.0 (clang-1100.0.20.17)
+Apple clang version 11.0.0 (clang-1100.0.31.5)
 /Users/bbielik/Library/Developer/Xcode/DerivedData/XCFrameworks-cpuavyxyllwpvzaejoqpkyxljscv/Build/Intermediates.noindex/ArchiveIntermediates/DynamicFramework/IntermediateBuildFilesPath/DynamicFramework.build/Release-iphoneos/DynamicFramework.build/DerivedSources/DynamicFramework_vers.c
 _$s7PackageMXM
 _$s7PackageAAVMf

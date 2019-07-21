@@ -7,10 +7,16 @@
 //
 
 import UIKit
+
+// XCFrameworks
 import DynamicFramework
 import StaticLibrary
-import TextAttributes
+
+// Development package
 import SwiftPackage
+
+// External Swift Package
+import TextAttributes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

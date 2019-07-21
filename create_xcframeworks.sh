@@ -33,7 +33,7 @@ function createXCFramework {
 function createXCFrameworkForStaticLibrary {
   FRAMEWORK_SIMULATOR_DIR=$(archivePathSimulator $1).xcarchive/Products/usr/local/lib
   FRAMEWORK_DEVICE_DIR=$(archivePathDevice $1).xcarchive/Products/usr/local/lib
-  xcodebuild -create-xcframework -library ${FRAMEWORK_SIMULATOR_DIR}/libStaticLibrary.a -library ${FRAMEWORK_DEVICE_DIR}/libStaticLibrary.a -output ${XCFRAMEWORKS_DIR_PATH}/${1}.xcframework
+  xcodebuild -create-xcframework -library ${FRAMEWORK_SIMULATOR_DIR}/libStaticLibrary.a -library ${FRAMEWORK_DEVICE_DIR}/libStaticLibrary.a -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework
 }
 
 echo "#####################"
@@ -43,7 +43,6 @@ rm -rf $OUTPUT_DIR_PATH
 #### Static Library ####
 LIBRARY=StaticLibrary
 
-echo "▸ Archiving static library"
 echo "▸ Archive $LIBRARY"
 buildArchive ${LIBRARY}
 
@@ -54,7 +53,6 @@ createXCFrameworkForStaticLibrary ${LIBRARY}
 
 DYNAMIC_FRAMEWORK=DynamicFramework
 
-echo "▸ Archiving dynamic framework"
 echo "▸ Archive $DYNAMIC_FRAMEWORK"
 buildArchive ${DYNAMIC_FRAMEWORK}
 

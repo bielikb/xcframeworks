@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		213919DD22C2BCFE003EA06E /* DynamicFramework.xcframework in Resources */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; };
 		213919DE22C2BD0B003EA06E /* DynamicFramework.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		213919DF22C2BD13003EA06E /* libStaticLibrary.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21D7124C22C1813600D62E4E /* libStaticLibrary.a */; };
+		21CAD37022E4686D00FC51EB /* StaticLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; };
+		21CAD37122E4687400FC51EB /* DynamicFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; };
+		21CAD37222E4688200FC51EB /* StaticLibrary.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21D7121822C17DAD00D62E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7121722C17DAD00D62E4E /* AppDelegate.swift */; };
 		21D7121A22C17DAD00D62E4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7121922C17DAD00D62E4E /* SceneDelegate.swift */; };
 		21D7121C22C17DAD00D62E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7121B22C17DAD00D62E4E /* ViewController.swift */; };
@@ -17,10 +19,10 @@
 		21D7122122C17DAE00D62E4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D7122022C17DAE00D62E4E /* Assets.xcassets */; };
 		21D7122422C17DAE00D62E4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D7122222C17DAE00D62E4E /* LaunchScreen.storyboard */; };
 		21D7122F22C17DAF00D62E4E /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7122E22C17DAF00D62E4E /* SampleTests.swift */; };
-		21D7124F22C1817000D62E4E /* libStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D7124E22C1817000D62E4E /* libStaticLibrary.a */; };
 		21D7125622C1830E00D62E4E /* TextAttributes in Frameworks */ = {isa = PBXBuildFile; productRef = 21D7125522C1830E00D62E4E /* TextAttributes */; };
 		21D7125822C184D000D62E4E /* SwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 21D7125722C184D000D62E4E /* SwiftPackage */; };
 		21D7125922C184DE00D62E4E /* SwiftPackage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21D7125322C1823B00D62E4E /* SwiftPackage */; };
+		21EB00DB22E4671C00AD9B3F /* StaticLibrary.xcframework in Resources */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				213919DF22C2BD13003EA06E /* libStaticLibrary.a in CopyFiles */,
+				21CAD37222E4688200FC51EB /* StaticLibrary.xcframework in CopyFiles */,
 				213919DE22C2BD0B003EA06E /* DynamicFramework.xcframework in CopyFiles */,
 				21D7125922C184DE00D62E4E /* SwiftPackage in CopyFiles */,
 			);
@@ -61,9 +63,9 @@
 		21D7122A22C17DAE00D62E4E /* SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D7122E22C17DAF00D62E4E /* SampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTests.swift; sourceTree = "<group>"; };
 		21D7123022C17DAF00D62E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21D7124C22C1813600D62E4E /* libStaticLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libStaticLibrary.a; sourceTree = "<group>"; };
-		21D7124E22C1817000D62E4E /* libStaticLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libStaticLibrary.a; path = "../../../../../Products/archives/StaticLibrary-SIMULATOR.xcarchive/Products/usr/local/lib/libStaticLibrary.a"; sourceTree = "<group>"; };
 		21D7125322C1823B00D62E4E /* SwiftPackage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftPackage; sourceTree = "<group>"; };
+		21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XCFrameworks.xcconfig; path = ../XCFrameworks.xcconfig; sourceTree = "<group>"; };
+		21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StaticLibrary.xcframework; path = ../../Products/xcframeworks/StaticLibrary.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21CAD37122E4687400FC51EB /* DynamicFramework.xcframework in Frameworks */,
+				21CAD37022E4686D00FC51EB /* StaticLibrary.xcframework in Frameworks */,
 				21D7125822C184D000D62E4E /* SwiftPackage in Frameworks */,
 				21D7125622C1830E00D62E4E /* TextAttributes in Frameworks */,
-				21D7124F22C1817000D62E4E /* libStaticLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +93,7 @@
 		21D7120B22C17DAD00D62E4E = {
 			isa = PBXGroup;
 			children = (
+				21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */,
 				21D7124822C1811C00D62E4E /* Frameworks */,
 				21D7121622C17DAD00D62E4E /* Sample */,
 				21D7122D22C17DAF00D62E4E /* SampleTests */,
@@ -132,36 +136,11 @@
 		21D7124822C1811C00D62E4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */,
 				213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */,
 				21D7125322C1823B00D62E4E /* SwiftPackage */,
-				21D7124922C1812200D62E4E /* Static Library */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		21D7124922C1812200D62E4E /* Static Library */ = {
-			isa = PBXGroup;
-			children = (
-				21D7124B22C1812D00D62E4E /* Simulator */,
-				21D7124A22C1812900D62E4E /* Device */,
-			);
-			path = "Static Library";
-			sourceTree = "<group>";
-		};
-		21D7124A22C1812900D62E4E /* Device */ = {
-			isa = PBXGroup;
-			children = (
-				21D7124C22C1813600D62E4E /* libStaticLibrary.a */,
-			);
-			path = Device;
-			sourceTree = "<group>";
-		};
-		21D7124B22C1812D00D62E4E /* Simulator */ = {
-			isa = PBXGroup;
-			children = (
-				21D7124E22C1817000D62E4E /* libStaticLibrary.a */,
-			);
-			path = Simulator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +236,7 @@
 				21D7122122C17DAE00D62E4E /* Assets.xcassets in Resources */,
 				213919DD22C2BCFE003EA06E /* DynamicFramework.xcframework in Resources */,
 				21D7121F22C17DAD00D62E4E /* Main.storyboard in Resources */,
+				21EB00DB22E4671C00AD9B3F /* StaticLibrary.xcframework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +300,7 @@
 /* Begin XCBuildConfiguration section */
 		21D7123122C17DAF00D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -380,6 +361,7 @@
 		};
 		21D7123222C17DAF00D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -434,6 +416,7 @@
 		};
 		21D7123422C17DAF00D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,7 +426,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baios.dynamicFramework.Sample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bielikb.XCFrameworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,6 +435,7 @@
 		};
 		21D7123522C17DAF00D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,7 +445,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baios.dynamicFramework.Sample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bielikb.XCFrameworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,6 +454,7 @@
 		};
 		21D7123722C17DAF00D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +476,7 @@
 		};
 		21D7123822C17DAF00D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

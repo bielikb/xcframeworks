@@ -1,0 +1,10 @@
+
+// Enables bitcode
+ENABLE_BITCODE=YES
+BITCODE_GENERATION_MODE=bitcode
+OTHER_C_FLAGS=-fembed-bitcode
+
+// Xcode 11 Beta 4 fix
+LD_VERIFY_BITCODE=NO
+
+SWIFT_VERSION=5.0
