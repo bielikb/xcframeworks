@@ -12,7 +12,8 @@ Demonstration of creating and integrating the xcframeworks and their co-op with 
 `XCFrameworks` workspace consists of:
 - `StaticLibrary` project - represents static library project
 - `DynamicFramework` project - represents project that builds dylib
-- `Package` - Swift Package
+- `Swift Package` - Swift Package for internal development (within Sample project)
+- `TextAttributes` - external Swift Package
 
 - `Sample` - Sample project that includes all of the above + `TextAttributes` remote Swift Package.
 
@@ -75,6 +76,10 @@ eg.
 create_xcframeworks.sh Products
 ```
 
+# Materials
 
-# Presentation
+## Presentation about Dependency management in Xcode 11
 https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
+
+## Binary Frameworks in Swift
+https://developer.apple.com/videos/play/wwdc2019/416/
