@@ -6,17 +6,17 @@ _symbolic _____ 16DynamicFrameworkAAC
 _$s16DynamicFrameworkAACMF
 ___swift_reflection_version
 _objc_classes
-Apple clang version 11.0.0 (clang-1100.0.31.3)
+Apple clang version 11.0.0 (clang-1100.0.32.1)
 <swift-imported-modules>
 /Users/bbielik/Code/repos/own/XCFrameworks/DynamicFramework
-Apple Swift version 5.1 (swiftlang-1100.0.257.2 clang-1100.0.31.3)
+Apple Swift version 5.1 (swiftlang-1100.0.266.1 clang-1100.0.32.1)
 /Users/bbielik/Code/repos/own/XCFrameworks/DynamicFramework/DynamicFramework/Sum.swift
 deinit
 sum
 init
 $s16DynamicFrameworkAACMa
 <compiler-generated>
-Apple clang version 11.0.0 (clang-1100.0.31.5)
+Apple clang version 11.0.0 (clang-1100.0.32.5)
 /Users/bbielik/Library/Developer/Xcode/DerivedData/XCFrameworks-cpuavyxyllwpvzaejoqpkyxljscv/Build/Intermediates.noindex/ArchiveIntermediates/DynamicFramework/IntermediateBuildFilesPath/DynamicFramework.build/Release-iphoneos/DynamicFramework.build/DerivedSources/DynamicFramework_vers.c
 _$s7PackageMXM
 _$s7PackageAAVMf

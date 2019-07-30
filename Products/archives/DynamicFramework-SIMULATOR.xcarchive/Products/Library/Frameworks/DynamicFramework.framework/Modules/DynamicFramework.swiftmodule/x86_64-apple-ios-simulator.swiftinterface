@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.257.2 clang-1100.0.31.3)
+// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.266.1 clang-1100.0.32.1)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DynamicFramework
 import Foundation
 import Swift

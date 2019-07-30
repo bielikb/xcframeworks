@@ -38,6 +38,8 @@ Binaries in .xcarchive are located under:
 _NOTE: Xcode 11 beta 4 requires `LD_VERIFY_BITCODE=NO` for projects that enable bitcode_
 https://twitter.com/krzyzanowskim/status/1151549874653081601
 
+_NOTE: Xcode 11 beta 5 doesn't require `LD_VERIFY_BITCODE=NO` anymore.
+
 ### 2. Create .xcframework
 
 Xcodebuild allows you to create xcframework from framework, library or even add headers to libraries.
