@@ -16,24 +16,32 @@ function archivePathDevice {
   echo "${DIR}"
 }
 
+function archivePathMac {
+  local DIR=${OUTPUT_DIR_PATH}/archives/"${1}-MAC"
+  echo "${DIR}"
+}
+
 # Builds archive for simulator & device
 function buildArchive {
   xcodebuild archive -workspace XCFrameworks.xcworkspace -scheme ${1} -destination "generic/platform=iOS Simulator" -archivePath $(archivePathSimulator $1)  SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcpretty
   xcodebuild archive -workspace XCFrameworks.xcworkspace -scheme ${1} -destination "generic/platform=iOS"           -archivePath $(archivePathDevice $1)     SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcpretty
+  xcodebuild archive -workspace XCFrameworks.xcworkspace -scheme ${1} -destination "generic/platform=macOS"         -archivePath $(archivePathMac $1)        SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcpretty
 }
 
 # Creates xc framework
 function createXCFramework {
   FRAMEWORK_SIMULATOR_DIR=$(archivePathSimulator $1).xcarchive/Products/Library/Frameworks
   FRAMEWORK_DEVICE_DIR=$(archivePathDevice $1).xcarchive/Products/Library/Frameworks
-  xcodebuild -create-xcframework -framework ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework -framework ${FRAMEWORK_DEVICE_DIR}/${1}.framework -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework
+  FRAMEWORK_MAC_DIR=$(archivePathMac $1).xcarchive/Products/Library/Frameworks
+  xcodebuild -create-xcframework -framework ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework -framework ${FRAMEWORK_DEVICE_DIR}/${1}.framework -framework ${FRAMEWORK_MAC_DIR}/${1}.framework -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework
 }
 
 ### Static Libraries cant be turned into frameworks
 function createXCFrameworkForStaticLibrary {
   FRAMEWORK_SIMULATOR_DIR=$(archivePathSimulator $1).xcarchive/Products/usr/local/lib
   FRAMEWORK_DEVICE_DIR=$(archivePathDevice $1).xcarchive/Products/usr/local/lib
-  xcodebuild -create-xcframework -library ${FRAMEWORK_SIMULATOR_DIR}/libStaticLibrary.a -library ${FRAMEWORK_DEVICE_DIR}/libStaticLibrary.a -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework
+  FRAMEWORK_MAC_DIR=$(archivePathMac $1).xcarchive/Products/usr/local/lib
+  xcodebuild -create-xcframework -library ${FRAMEWORK_SIMULATOR_DIR}/libStaticLibrary.a -library ${FRAMEWORK_DEVICE_DIR}/libStaticLibrary.a -library ${FRAMEWORK_MAC_DIR}/libStaticLibrary.a -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework
 }
 
 echo "#####################"
