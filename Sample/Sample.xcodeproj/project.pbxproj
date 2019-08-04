@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		213919DD22C2BCFE003EA06E /* DynamicFramework.xcframework in Resources */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; };
-		213919DE22C2BD0B003EA06E /* DynamicFramework.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21CAD37022E4686D00FC51EB /* StaticLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; };
-		21CAD37122E4687400FC51EB /* DynamicFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; };
-		21CAD37222E4688200FC51EB /* StaticLibrary.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21D7121822C17DAD00D62E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7121722C17DAD00D62E4E /* AppDelegate.swift */; };
 		21D7121A22C17DAD00D62E4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7121922C17DAD00D62E4E /* SceneDelegate.swift */; };
 		21D7121C22C17DAD00D62E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7121B22C17DAD00D62E4E /* ViewController.swift */; };
@@ -21,8 +17,10 @@
 		21D7122F22C17DAF00D62E4E /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7122E22C17DAF00D62E4E /* SampleTests.swift */; };
 		21D7125622C1830E00D62E4E /* TextAttributes in Frameworks */ = {isa = PBXBuildFile; productRef = 21D7125522C1830E00D62E4E /* TextAttributes */; };
 		21D7125822C184D000D62E4E /* SwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 21D7125722C184D000D62E4E /* SwiftPackage */; };
-		21D7125922C184DE00D62E4E /* SwiftPackage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21D7125322C1823B00D62E4E /* SwiftPackage */; };
 		21EB00DB22E4671C00AD9B3F /* StaticLibrary.xcframework in Resources */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; };
+		780CC11122F7284000C27BB5 /* DynamicFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; };
+		780CC11222F7284000C27BB5 /* DynamicFramework.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		780CC11322F7284200C27BB5 /* StaticLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,9 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				21CAD37222E4688200FC51EB /* StaticLibrary.xcframework in CopyFiles */,
-				213919DE22C2BD0B003EA06E /* DynamicFramework.xcframework in CopyFiles */,
-				21D7125922C184DE00D62E4E /* SwiftPackage in CopyFiles */,
+				780CC11222F7284000C27BB5 /* DynamicFramework.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21CAD37122E4687400FC51EB /* DynamicFramework.xcframework in Frameworks */,
-				21CAD37022E4686D00FC51EB /* StaticLibrary.xcframework in Frameworks */,
 				21D7125822C184D000D62E4E /* SwiftPackage in Frameworks */,
+				780CC11322F7284200C27BB5 /* StaticLibrary.xcframework in Frameworks */,
+				780CC11122F7284000C27BB5 /* DynamicFramework.xcframework in Frameworks */,
 				21D7125622C1830E00D62E4E /* TextAttributes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
