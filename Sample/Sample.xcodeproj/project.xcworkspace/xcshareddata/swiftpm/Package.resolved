@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "TextAttributes",
+        "repositoryURL": "git@github.com:bielikb/TextAttributes.git",
+        "state": {
+          "branch": null,
+          "revision": "b2388d155f2fe6c560fd5a9db194b795e411b8b5",
+          "version": "2.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
