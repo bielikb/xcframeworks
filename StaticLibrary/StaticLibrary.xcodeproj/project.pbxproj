@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		21D711DA22C16F7300D62E4E /* libStaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStaticLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D711DD22C16F7300D62E4E /* StaticLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticLibrary.swift; sourceTree = "<group>"; };
+		A301C5B922FA3EFB00CB0241 /* XCFrameworks.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XCFrameworks.xcconfig; path = ../XCFrameworks.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		21D711D122C16F7300D62E4E = {
 			isa = PBXGroup;
 			children = (
+				A301C5B922FA3EFB00CB0241 /* XCFrameworks.xcconfig */,
 				21D711DC22C16F7300D62E4E /* StaticLibrary */,
 				21D711DB22C16F7300D62E4E /* Products */,
 			);
@@ -129,6 +131,7 @@
 /* Begin XCBuildConfiguration section */
 		21D711DF22C16F7300D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A301C5B922FA3EFB00CB0241 /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -189,6 +192,7 @@
 		};
 		21D711E022C16F7300D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A301C5B922FA3EFB00CB0241 /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -243,13 +247,13 @@
 		};
 		21D711E222C16F7300D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A301C5B922FA3EFB00CB0241 /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP4PF9Z9YL;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -257,13 +261,13 @@
 		};
 		21D711E322C16F7300D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A301C5B922FA3EFB00CB0241 /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP4PF9Z9YL;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

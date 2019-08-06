@@ -391,6 +391,7 @@
 		};
 		21D7120422C1762800D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -437,6 +438,7 @@
 		};
 		21D7120722C1762800D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EB00D822E45FD200AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

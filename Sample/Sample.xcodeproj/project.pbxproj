@@ -18,7 +18,8 @@
 		21D7125822C184D000D62E4E /* SwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 21D7125722C184D000D62E4E /* SwiftPackage */; };
 		780CC11122F7284000C27BB5 /* DynamicFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; };
 		780CC11222F7284000C27BB5 /* DynamicFramework.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 213919DC22C2BCFE003EA06E /* DynamicFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		780CC11322F7284200C27BB5 /* StaticLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; };
+		A301C5BA22FA3F2200CB0241 /* StaticLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; };
+		A301C5BB22FA3F2200CB0241 /* StaticLibrary.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				780CC11222F7284000C27BB5 /* DynamicFramework.xcframework in CopyFiles */,
+				A301C5BB22FA3F2200CB0241 /* StaticLibrary.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21D7125822C184D000D62E4E /* SwiftPackage in Frameworks */,
-				780CC11322F7284200C27BB5 /* StaticLibrary.xcframework in Frameworks */,
+				A301C5BA22FA3F2200CB0241 /* StaticLibrary.xcframework in Frameworks */,
 				780CC11122F7284000C27BB5 /* DynamicFramework.xcframework in Frameworks */,
 				21D7125622C1830E00D62E4E /* TextAttributes in Frameworks */,
 			);
