@@ -15,7 +15,7 @@ Demonstration of creating and integrating the xcframeworks and their co-op with 
 - `Swift Package` - Swift Package for internal development (within Sample project)
 - `TextAttributes` - external Swift Package
 
-- `Sample` - Sample project that includes all of the above + `TextAttributes` remote Swift Package.
+- `Sample` - Sample project that includes all of the dependencies mentioned above.
 
 ---
 
@@ -44,7 +44,7 @@ _NOTE: Xcode 11 beta 5 doesn't require `LD_VERIFY_BITCODE=NO` anymore.
 
 Xcodebuild allows you to create xcframework from framework, library or even add headers to libraries.
 
-![-create-xcframework](./xcodebuild_create_xc_framework.png)
+![-create-xcframework](./res/xcodebuild_create_xc_framework.png)
 
 1. Pass all frameworks or libraries that you want to wrap into .xcframework
 2. Specify the outpath paht using `-output` argument. Don't forget to add `.xcframework` extension to your output path.
@@ -54,7 +54,7 @@ _NOTE:_
 
 Module stability make use of `.swiftinterface` file, that describes the public interface of your framework along with linker flags, used toolchain and other info. Swift interface can be found under your framework's `swiftmodule` folder.
 
-![swift-interface](./swiftinterface.png)
+![swift-interface](./res/swiftinterface.png)
 
 ---
 
@@ -70,12 +70,12 @@ The script will:
 `Usage`
 
 ```
-./create_xcframeworks.sh OUTPUT_DIRECTORY_NAME
+./scripts/create_xcframeworks.sh OUTPUT_DIRECTORY_NAME
 ```
 
 eg.
 ```
-create_xcframeworks.sh Products
+./scripts/create_xcframeworks.sh Products
 ```
 
 # Materials
