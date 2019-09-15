@@ -7,20 +7,6 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 - Swift 5.1 toolchain - run `sudo xcode-select -s path/to/Xcode11` in terminal.
 - Github/Gitlab/Bitbucket account set in Xcode's account preferences
 
-# Xcode workspace description
-
-`XCFrameworks` workspace consists of:
-- `StaticLibrary` project - represents static library project
-- `DynamicFramework` project - represents project that builds dylib
-- `Swift Package` - Swift Package for internal development (within Sample project)
-- `TextAttributes` - external Swift Package
-
-- `Sample` - Sample project that includes all of the dependencies mentioned above.
-
-![swift-interface](./res/project.png)
-
----
-
 # .xcframework - How To
 
 ## Requirements
@@ -35,7 +21,7 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 - **STOP** slicing frameworks by stripping the architectures in your projects' targets' custom `build-phase`.
 
 ## Platforms
-xcframework supports all Apple platforms - `macOS`, `tvOS`, `watchOS`, `iPadOS` platforms.
+xcframework supports all Apple platforms - `iOS`, `macOS`, `tvOS`, `watchOS`, `iPadOS` platforms.
 
 ## List of destinations
 | Platform  |  Destination |
@@ -46,6 +32,7 @@ xcframework supports all Apple platforms - `macOS`, `tvOS`, `watchOS`, `iPadOS` 
 | iPadOS Simulator  | generic/platform=iPadOS Simulator|
 | macOS  | generic/platform=macOS  |
 | tvOS  | generic/platform=tvOS  |
+| watchOS | generic/platform=watchOS |
 | watchOS Simulator | generic/platform=watchOS Simulator |
 
 ---
@@ -157,6 +144,22 @@ eg.
 
 * **Carthage** - [work in progress PR #2820](https://github.com/Carthage/Carthage/pull/2820)
 * **CocoaPods** - there's open [feature request for v1.9.0](https://github.com/CocoaPods/CocoaPods/issues/9148)
+
+---
+
+# XCFrameworks workspace description
+
+`XCFrameworks` workspace consists of:
+- `StaticLibrary` project - represents static library project
+- `DynamicFramework` project - represents project that builds dylib
+- `Swift Package` - Swift Package for internal development (within Sample project)
+- `TextAttributes` - external Swift Package
+
+- `Sample` - Sample project that includes all of the dependencies mentioned above.
+
+![swift-interface](./res/project.png)
+
+---
 
 ---
 
