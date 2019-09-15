@@ -103,7 +103,7 @@ Module stability is gained with Xcode 11 + Swift 5.1, once your module declares 
 ---
 
 ## Generate .xcframeworks for iOS + iOS Simulator using create_xcframeworks.sh script
-The archiving and creation of `.xcframework` is excercised by [create_xcframeworks.sh](/scripts/create-xcframeworks.sh) script.
+The archiving and creation of `.xcframework` is excercised by [create_xcframeworks.sh](/scripts/create_xcframeworks.sh) script.
 
 This script takes 1 parameter that defines output directory.
 `Output directory` will create subfolder for `archives` and `xcframeworks`.
@@ -147,7 +147,7 @@ eg.
 
 ---
 
-# XCFrameworks workspace description
+# Description of XCFrameworks workspace
 
 `XCFrameworks` workspace consists of:
 - `StaticLibrary` project - represents static library project
