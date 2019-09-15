@@ -10,7 +10,7 @@ import UIKit
 
 // XCFrameworks
 import DynamicFramework
-import StaticLibrary
+// import StaticLibrary
 
 // Development package
 import SwiftPackage
@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         // Static Library
-        let staticLib = StaticLibrary()
-        print("StaticLibrary: ", staticLib.sum(1, second: 2))
+//        let staticLib = StaticLibrary()
+//        print("StaticLibrary: ", staticLib.sum(1, second: 2))
 
         // Dynamic Framework
         let dyn = DynamicFramework()
