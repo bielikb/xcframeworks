@@ -37,7 +37,7 @@ xcframework supports all Apple platforms - `iOS`, `macOS`, `tvOS`, `watchOS`, `i
 
 ---
 
-## How to create .xcframeworks that contain iOS + iOS Simulator platforms
+## How to create .xcframework that contain iOS + iOS Simulator platforms
 
 ### 1. Archive your scheme for desired platforms (destinations)
 1.1 Pass `SKIP_INSTALL=NO` && `BUILD_LIBRARY_FOR_DISTRIBUTION=YES` to archive your scheme
@@ -101,6 +101,18 @@ Module stability is gained with Xcode 11 + Swift 5.1, once your module declares 
 ![swift-interface](./res/swiftinterface.png)
 
 ---
+## Testing & Troubleshooting
+
+Make sure to always build & run your generated xcframework before distributing it to your clients.
+Few of the **problems will unveil just at the compile or run time**, so **don't** rely solely on the success of the xcframework creation.
+
+Here's the list of compiler errors I got across when integrating built xcframework into Xcode project.
+
+| Problem  | Severity |  Description | Solution |
+|---|---|---|---|
+| Redundant conformance of `x` to `NSObjectProtocol` | error - thrown at integration point | Your class is already subclassed from `NSObject`, which conforms to `NSObjectProtocol`  | Check protocol conformances of your classes and remove redundant conformance to `NSObjectProtocol` |
+| scoped imports are not yet supported in module interfaces | warning | Read more about Swift import declarations here: https://nshipster.com/import/ | Import the module instead of specific declaration. For example: change `import class MyModule.MyClass` to `import MyModule` |
+
 
 ## Generate .xcframeworks for iOS + iOS Simulator using create_xcframeworks.sh script
 The archiving and creation of `.xcframework` is excercised by [create_xcframeworks.sh](/scripts/create_xcframeworks.sh) script.
