@@ -1,6 +1,15 @@
-# xcframeworks
+# xcframeworks repo
 This is a demonstration of creating and integrating the xcframeworks and their co-op with static libraries and Swift packages within the same Xcode project.
 
+## Table of contents
+* [Introduction: .xcframework - How To](#.xcframework---How-To)
+* [How to create .xcframework that contain iOS + iOS Simulator platforms](#How-to-create-.xcframework-that-contains-iOS-+-iOS-Simulator-platforms)
+* [Testing & Troubleshooting](#Testing-&-Troubleshooting)
+* [Generate .xcframeworks for iOS + iOS Simulator using create_xcframeworks.sh script](#Generate-.xcframeworks-for-iOS-+-iOS-Simulator-using-create_xcframeworks.sh-script)
+* [How to integrate .xcframework in your project](#How-to-integrate-.xcframework-in-your-project)
+* [Distribution of xcframeworks](#Distribution-of-xcframeworks)
+* [What's in XCFrameworks workspace](#What's-in-XCFrameworks-workspace)
+* [Materials](#Materials)
 
 ## Pre-requisities
 - Xcode 11
@@ -111,6 +120,7 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 | Problem  | Severity |  Description | Solution |
 |---|---|---|---|
 | Redundant conformance of `x` to `NSObjectProtocol` | error - thrown at integration point | Your class is already subclassed from `NSObject`, which conforms to `NSObjectProtocol`  | Check protocol conformances of your classes and remove redundant conformance to `NSObjectProtocol` |
+| @objc' class method in extension of subclass of `Class X` requires iOS 13.0.0 | error | Rules for interoperability with Objective-C has changed since iOS 13.0.0. and currently doesn't support `@objc` interoperability in class extensions. There's open question on [Swift forums](https://forums.swift.org/t/xcframework-requires-to-target-ios-13-for-inter-framework-dependencies-with-objective-c-compatibility-tested-with-xcode-11-beta-7/28539) | Move/Remove `@objc` declaration from your Swift class extension |
 | scoped imports are not yet supported in module interfaces | warning | Read more about Swift import declarations here: https://nshipster.com/import/ | Import the module instead of specific declaration. For example: change `import class MyModule.MyClass` to `import MyModule` |
 
 
@@ -154,12 +164,15 @@ eg.
 # Distribution of xcframeworks
 * manually - available as of today
 
-* **Carthage** - [work in progress PR #2820](https://github.com/Carthage/Carthage/pull/2820)
-* **CocoaPods** - there's open [feature request for v1.9.0](https://github.com/CocoaPods/CocoaPods/issues/9148)
+* **Carthage**  
+    - [Roadmap for 2019/2020](https://github.com/Carthage/Carthage/issues/2890)
+
+* **CocoaPods**
+    - [Feature request to bring support for new xcframework format in v1.9.0](https://github.com/CocoaPods/CocoaPods/issues/9148)
 
 ---
 
-# Description of XCFrameworks workspace
+# What's in XCFrameworks workspace
 
 `XCFrameworks` workspace consists of:
 - `StaticLibrary` project - represents static library project
@@ -177,11 +190,14 @@ eg.
 
 # Materials
 
-## Presentation about Dependency management in Xcode 11
-https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
-
 ## Binary Frameworks in Swift
 https://developer.apple.com/videos/play/wwdc2019/416/
 
 ## ABI Stability & Module Stability - swift.org
 https://swift.org/blog/abi-stability-and-more/
+
+## Library evolution for stable ABIs
+https://github.com/apple/swift-evolution/blob/master/proposals/0260-library-evolution.md
+
+## Presentation about Dependency management in Xcode 11
+https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
