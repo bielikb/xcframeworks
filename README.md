@@ -23,14 +23,29 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 - Swift 5.1 and above
 
 ## Motivation & consequences
-- gain module stability for your Swift frameworks & libraries.
-- support all Apple platforms and architectures - this is where `lipo` command line tool falls short - e.g. arm6 architecture can be found in iOS + watchOS, thus using `lipo` wouldnt be sufficient.
+- introduce standard format to gain module stability for your Swift frameworks & libraries. Library author & client of a library are no longer required to use the same version of compiler
+- provide seamless experience when creating & integrating the module stable frameworks
+- support all Apple platforms and architectures
+NOTE: while `fat framework` can support module stability, the `lipo` command line tool, that is used to fuse the frameworks together, is not officially supported by Apple. Also using `lipo` tools falls short in cases of fusing two platforms with similar architectures together - e.g. arm6 architecture can be found in iOS + watchOS.
 
 - **STOP** creating & using `fat frameworks` == no more `lipo`.
 - **STOP** slicing frameworks by stripping the architectures in your projects' targets' custom `build-phase`.
 
+## Contents of xcframework
+
+This format bundles module-stable frameworks (.swiftinterface) for the platforms of interest.
+
+The [Info.plist](./Products/xcframeworks/DynamicFramework.xcframework) contains all available frameworks in a bundle. This information is used by Xcode during the linking time => xcodebuild picks the right framework for the platform we're building against
+
+The structure of xcframework looks as shown below
+![xcframework](./res/xcframework.png)
+
+## Size of xcframework
+The size of an `xcframework` was smaller than the size of an corresponding `fat framework`. I tested swift only & mixed frameworks.
+Generally the `lipo` commandline tool adds a bit of overhead for all contained architectures.
+
 ## Platforms
-xcframework supports all Apple platforms - `iOS`, `macOS`, `tvOS`, `watchOS`, `iPadOS` platforms.
+xcframework supports all Apple platforms - `iOS`, `macOS`, `tvOS`, `watchOS`, `iPadOS`, `carPlayOS`.
 
 ## List of destinations
 | Platform  |  Destination |
@@ -43,6 +58,8 @@ xcframework supports all Apple platforms - `iOS`, `macOS`, `tvOS`, `watchOS`, `i
 | tvOS  | generic/platform=tvOS  |
 | watchOS | generic/platform=watchOS |
 | watchOS Simulator | generic/platform=watchOS Simulator |
+| carPlayOS | generic/platform=carPlayOS
+| carPlayOS Simulator | generic/platform=carPlayOS Simulator
 
 ---
 
@@ -143,8 +160,8 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 
 | Problem  | Severity |  Description | Solution |
 |---|---|---|---|
-| Redundant conformance of `x` to `NSObjectProtocol` | error - thrown at runtime = integration point | Your class is already subclassed from `NSObject`, which conforms to `NSObjectProtocol`  | Check protocol conformances of your classes and remove redundant conformance to `NSObjectProtocol` |
-| Use of unimplemented initializer 'init()' for class | error - thrown at runtime = integration point | Objective-C ABI public classes need to provide `public` init | Provide `public` init override for your public class:  `override public init()` |
+| Redundant conformance of `x` to `NSObjectProtocol` | error - thrown at dynamic linking time | Your class is already subclassed from `NSObject`, which conforms to `NSObjectProtocol`  | Check protocol conformances of your classes and remove redundant conformance to `NSObjectProtocol` |
+| Use of unimplemented initializer 'init()' for class | error - thrown at dynamic linking time | Objective-C ABI public classes need to provide `public` init | Provide `public` init override for your public class:  `override public init()` |
 | @objc' class method in extension of subclass of `Class X` requires iOS 13.0.0 | error | Rules for interoperability with Objective-C has changed since iOS 13.0.0. and currently doesn't support `@objc` interoperability in class extensions. There's open question on [Swift forums](https://forums.swift.org/t/xcframework-requires-to-target-ios-13-for-inter-framework-dependencies-with-objective-c-compatibility-tested-with-xcode-11-beta-7/28539) | Move/Remove `@objc` declaration from your Swift class extension |
 | scoped imports are not yet supported in module interfaces | warning | Read more about Swift import declarations here: https://nshipster.com/import/ | Import the module instead of specific declaration. For example: change `import class MyModule.MyClass` to `import MyModule` |
 
@@ -158,7 +175,11 @@ Here's the list of compiler errors I got across when integrating built xcframewo
     - [Roadmap to provide support for xcframeworks 2019/2020](https://github.com/Carthage/Carthage/issues/2890)
 
 * **CocoaPods**
-    - [Feature request to bring support for new xcframework format in v1.9.0](https://github.com/CocoaPods/CocoaPods/issues/9148)
+    - [Feature request to bring support for new xcframework format in v1.9.0](https://github.com/CocoaPods/CocoaPods/issues/9148) + (PR)[https://github.com/CocoaPods/CocoaPods/pull/9334]
+
+
+* **Swift Package Manager**
+    - [SE-0272 Package Manager Binary Dependencies (returned for revision)](https://forums.swift.org/t/se-0272-package-manager-binary-dependencies/30753)
 
 ---
 
@@ -198,6 +219,15 @@ https://swift.org/blog/abi-stability-and-more/
 
 ## Library evolution for stable ABIs
 https://github.com/apple/swift-evolution/blob/master/proposals/0260-library-evolution.md
+
+## Library evolution - Docs
+https://github.com/apple/swift/blob/master/docs/LibraryEvolution.rst
+
+## Swift Unwrapped - Swift 5.1 with Doug Gregor (Library evolution, ...)
+https://spec.fm/podcasts/swift-unwrapped/308610
+
+## Alexis Beingessner- How Swift Achieved Dynamic Linking Where Rust Couldn't
+https://gankra.github.io/blah/swift-abi/
 
 ## Presentation about Dependency management in Xcode 11
 https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
