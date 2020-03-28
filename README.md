@@ -168,18 +168,25 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 ---
 
 # Distribution of xcframeworks
-* manually - available as of today
-
-* **Carthage**  
-    - distribute your xcframework as a binary - available as of today
-    - [Roadmap to provide support for xcframeworks 2019/2020](https://github.com/Carthage/Carthage/issues/2890)
+* **manually** - already available
 
 * **CocoaPods**
-    - [Feature request to bring support for new xcframework format in v1.9.0](https://github.com/CocoaPods/CocoaPods/issues/9148) + (PR)[https://github.com/CocoaPods/CocoaPods/pull/9334]
+    - supported since v1.9.1
+    - use `vendored_frameworks` to specify you xcframework(s) in your podspec. e.g. `s.vendored_frameworks = 'DynamicFramework.xcframework'`
+
+
+* **Carthage**  
+
+    - Carthage doesn't support xcframework format yet.
+    - [Roadmap to provide support for xcframeworks 2019/2020](https://github.com/Carthage/Carthage/issues/2890)
 
 
 * **Swift Package Manager**
-    - [SE-0272 Package Manager Binary Dependencies (returned for revision)](https://forums.swift.org/t/se-0272-package-manager-binary-dependencies/30753)
+
+    - [Proposal (SE-0272 Package Manager Binary Dependencies) was already implemented, but is not part of Swift 5.2 release](https://forums.swift.org/t/se-0272-package-manager-binary-dependencies/30753)
+    - Swift Package Manager currently doesnt support binary dependencies
+    - Based on [this](https://forums.swift.org/t/accepted-with-modifications-se-0272-package-manager-binary-dependencies/31926/9) response from Apple engineer, the support for binary dependencies will be introduced in the next major release of Swift, probably `Swift 6.0` & hopefully also in next version of Xcode -> `Xcode 12.0` (my personal guess 🤞)
+
 
 ---
 
@@ -216,6 +223,9 @@ https://developer.apple.com/videos/play/wwdc2019/416/
 
 ## ABI Stability & Module Stability - swift.org
 https://swift.org/blog/abi-stability-and-more/
+
+## Library evolution in Swift - swift.org
+https://swift.org/blog/library-evolution/
 
 ## Library evolution for stable ABIs
 https://github.com/apple/swift-evolution/blob/master/proposals/0260-library-evolution.md
