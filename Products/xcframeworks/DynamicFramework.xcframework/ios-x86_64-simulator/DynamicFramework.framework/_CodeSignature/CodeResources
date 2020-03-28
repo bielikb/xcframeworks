@@ -10,31 +10,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		6sHxD/nTtqehacjzFvf6RQa5L5k=
+		JgkMERHQAGBVWRaWXGWpBE1ihQI=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		5HtxTQEJNXE5if7wLttYm6WueM4=
+		j6zN6libwvyjGt/0Fv2MUL3SaWo=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		txmXfcXNuWOQigSM8N5oCGnxWpw=
+		9JPMV4gT6+7K+CZ1n9yHYlvCS6A=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		DalVribRZpbBwUY0C4ew+DlRs10=
+		zEFCsaqlQRRPztnGD/K5/XvPzRM=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		5HtxTQEJNXE5if7wLttYm6WueM4=
+		j6zN6libwvyjGt/0Fv2MUL3SaWo=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		txmXfcXNuWOQigSM8N5oCGnxWpw=
+		9JPMV4gT6+7K+CZ1n9yHYlvCS6A=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		DalVribRZpbBwUY0C4ew+DlRs10=
+		zEFCsaqlQRRPztnGD/K5/XvPzRM=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -50,42 +50,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O6AwAz4+N5lTN7xd/SfC+G8b5/2tre1YL+ZDPDco0u0=
+			YqAPBV4PWIQLg0zZAxEe8acwFSZxFfqDa9xW3W/HCQs=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xRhrCBXVEMoAgy4vSZV4aJiYGFWHIsy0tg0elA2XiFA=
+			JKyY5PEDscuaXnnJMxvACMcikWBVcFV+0qRWytuol84=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FSoPxnsqmlTXVgpFx9B0kmWpnuWvytIDeRj4SXXLZHg=
+			FelIWx+JEX4KYjubBVUvYIeUHLX1y3fvfwtuYlf/9Ek=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O6AwAz4+N5lTN7xd/SfC+G8b5/2tre1YL+ZDPDco0u0=
+			YqAPBV4PWIQLg0zZAxEe8acwFSZxFfqDa9xW3W/HCQs=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xRhrCBXVEMoAgy4vSZV4aJiYGFWHIsy0tg0elA2XiFA=
+			JKyY5PEDscuaXnnJMxvACMcikWBVcFV+0qRWytuol84=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FSoPxnsqmlTXVgpFx9B0kmWpnuWvytIDeRj4SXXLZHg=
+			FelIWx+JEX4KYjubBVUvYIeUHLX1y3fvfwtuYlf/9Ek=
 			</data>
 		</dict>
 	</dict>
