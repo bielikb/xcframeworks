@@ -60,7 +60,6 @@
 		21D7122E22C17DAF00D62E4E /* SampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTests.swift; sourceTree = "<group>"; };
 		21D7123022C17DAF00D62E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D7125322C1823B00D62E4E /* SwiftPackage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftPackage; sourceTree = "<group>"; };
-		21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XCFrameworks.xcconfig; path = ../XCFrameworks.xcconfig; sourceTree = "<group>"; };
 		21EB00DA22E4671C00AD9B3F /* StaticLibrary.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StaticLibrary.xcframework; path = ../../Products/xcframeworks/StaticLibrary.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +88,6 @@
 		21D7120B22C17DAD00D62E4E = {
 			isa = PBXGroup;
 			children = (
-				21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */,
 				21D7124822C1811C00D62E4E /* Frameworks */,
 				21D7121622C17DAD00D62E4E /* Sample */,
 				21D7122D22C17DAF00D62E4E /* SampleTests */,
@@ -294,7 +292,6 @@
 /* Begin XCBuildConfiguration section */
 		21D7123122C17DAF00D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -355,7 +352,6 @@
 		};
 		21D7123222C17DAF00D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -410,7 +406,6 @@
 		};
 		21D7123422C17DAF00D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -431,7 +426,6 @@
 		};
 		21D7123522C17DAF00D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,7 +446,6 @@
 		};
 		21D7123722C17DAF00D62E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -474,7 +467,6 @@
 		};
 		21D7123822C17DAF00D62E4E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21EB00D922E45FDC00AD9B3F /* XCFrameworks.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
