@@ -1,0 +1,21 @@
+
+desc "Export xcframework"
+lane :export_xcframework do
+  create_xcframework(
+    workspace: 'XCFrameworks.xcworkspace',
+    scheme: 'DynamicFramework',
+    include_bitcode: true,
+    destinations: ['iOS', 'maccatalyst'],
+    xcframework_output_directory: 'Products/xcframeworks'
+  )
+end
+
+desc "Build Sample App"
+lane :build_sample_app do
+  build_app(
+    scheme: 'Sample',
+    workspace: 'XCFrameworks.xcworkspace',
+    skip_archive: true,
+    skip_codesigning: true
+  )
+end
