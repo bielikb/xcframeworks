@@ -4,7 +4,7 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 ## Table of contents
 * [Introduction: New .xcframework format](#Introduction:-New-.xcframework-format)
 * [How to create .xcframework that contain iOS + iOS Simulator platforms](#How-to-create-.xcframework-that-contains-iOS-+-iOS-Simulator-platforms)
-* [Generate .xcframeworks for iOS + iOS Simulator using create_xcframeworks.sh script](#Generate-.xcframeworks-for-iOS-+-iOS-Simulator-using-create_xcframeworks.sh-script)
+* [Create xcframework using fastlane plugin](#Create-xcframework-using-fastlane-plugin)
 * [Testing & Troubleshooting](#Testing-&-Troubleshooting)
 * [Distribution of xcframeworks](#Distribution-of-xcframeworks)
 * [How to integrate .xcframework in your project](#How-to-integrate-.xcframework-in-your-project)
@@ -35,23 +35,24 @@ NOTE: while `fat framework` can support module stability, the `lipo` command lin
 
 This format bundles module-stable frameworks (.swiftinterface) for the platforms of interest.
 
-The [Info.plist](./Products/xcframeworks/DynamicFramework.xcframework) contains all available frameworks in a bundle. This information is used by Xcode during the linking time => xcodebuild picks the right framework for the platform we're building against
+The [Info.plist](./Products/xcframeworks/DynamicFramework.xcframework) contains all available frameworks in a bundle specified by library identifiers. This information is used by Xcode during the linking time => xcodebuild picks the right framework for the platform we're building against
 
 The structure of xcframework looks as shown below
 ![xcframework](./res/xcframework.png)
 
 ## Size of xcframework
-The size of an `xcframework` was smaller than the size of an corresponding `fat framework`. I tested swift only & mixed frameworks.
+During my tests I realized, the size of an `xcframework` was smaller than the size of an corresponding `fat framework`. I tested swift only & mixed frameworks.
 Generally the `lipo` commandline tool adds a bit of overhead for all contained architectures.
 
 ## Platforms
-xcframework supports all Apple platforms - `iOS`, `macOS`, `tvOS`, `watchOS`, `iPadOS`, `carPlayOS`.
+xcframework supports all Apple platforms & their variants - `iOS`, `maccatalyst`, `macOS`, `tvOS`, `watchOS`, `iPadOS`, `carPlayOS`.
 
 ## List of destinations
 | Platform  |  Destination |
 |---|---|
 | iOS  | generic/platform=iOS  |
 | iOS Simulator  | generic/platform=iOS Simulator |
+| maccatalyst | generic/platform=macOS,variant=Mac Catalyst |
 | iPadOS  | generic/platform=iPadOS |
 | iPadOS Simulator  | generic/platform=iPadOS Simulator|
 | macOS  | generic/platform=macOS  |
@@ -64,6 +65,10 @@ xcframework supports all Apple platforms - `iOS`, `macOS`, `tvOS`, `watchOS`, `i
 ---
 
 # How to create .xcframework that contain iOS + iOS Simulator platforms
+
+This section describes the process of creating the xcframework by archiving & creating the final xcframeworks from 2 archives built for `iOS` & `iOS Simulator`.
+
+However, if you're not interested in the details of the process of `how` the xcframework is created, head directly to section: [Create xcframework using fastlane plugin](#Create-xcframework-using-fastlane-plugin).
 
 ## 1. Archive your scheme for desired platforms (destinations)
 1.1 Pass `SKIP_INSTALL=NO` && `BUILD_LIBRARY_FOR_DISTRIBUTION=YES` to archive your scheme
@@ -126,27 +131,34 @@ Module stability is gained with Xcode 11 + Swift 5.1, once your module declares 
 
 ![swift-interface](./res/swiftinterface.png)
 
-## Generate .xcframeworks for iOS + iOS Simulator using create_xcframeworks.sh script
-The archiving and creation of `.xcframework` is excercised by [create_xcframeworks.sh](/scripts/create_xcframeworks.sh) script.
+## Create xcframework using fastlane plugin
 
-This script takes 1 parameter that defines output directory.
-`Output directory` will create subfolder for `archives` and `xcframeworks`.
+[This plugin](https://github.com/bielikb/fastlane-plugin-create_xcframework) allows you to generate the `xcframework` (including all dSYMs & BCSymbolMaps) by specifying the desired destinations.
+E.g. destination `[iOS]` will generate xcframework that contains slices for both `iOS` & `iOS Simulator`.
+⚠️ Currently the plugin doesn't support static libraries.
 
-The script will:
-- archive the scheme `StaticLibrary` & create the .xcframework
-- archive the scheme `DynamicFramework` & create the .xcframework
-
-![Generated xcframework](./res/generated_xcframework.png)
-
-`Usage`
-
+1. Add plugin to your project
 ```
-./scripts/create_xcframeworks.sh OUTPUT_DIRECTORY_NAME
+fastlane add_plugin create_xcframework
 ```
 
-eg.
+2. Add lane to your `Fastfile`
 ```
-./scripts/create_xcframeworks.sh Products
+desc "Export xcframework"
+lane :export_xcframework do
+  create_xcframework(
+    workspace: 'path/to/your.xcworkspace',
+    scheme: 'name of your scheme',
+    include_bitcode: true,
+    destinations: ['iOS', 'maccatalyst'],
+    xcframework_output_directory: 'Products/xcframeworks'
+  )
+end
+```
+
+You can try out the plugin in this project by calling following command:
+```
+bundle exec fastlane export_xcframework
 ```
 
 ---
@@ -170,22 +182,24 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 # Distribution of xcframeworks
 * **manually** - already available
 
+* **Swift Package Manager**
+
+    - [binary targets are supported since Xcode 12.0](https://developer.apple.com/wwdc20/10147)
+    - define binary target in your Swift Package manifest
+    - zipped xcframework filename should contain the version number
+    - compute the checksum by calling `swift package compute-checksum <xcframework filename`
+    - use the computed checksum in your Swift Package manifest, when referencing the xcframework remotely.
+
+
 * **CocoaPods**
     - supported since v1.9.1
-    - use `vendored_frameworks` to specify you xcframework(s) in your podspec. e.g. `s.vendored_frameworks = 'DynamicFramework.xcframework'`
-
+    - use `vendored_frameworks` to specify you xcframework(s) in your podspec. e.g. `spec.vendored_frameworks = 'DynamicFramework.xcframework'`
+    - specify paths to your dSYMs and xcframework in `spec.preserve_paths = [...]`
 
 * **Carthage**  
 
     - Carthage doesn't support xcframework format yet.
     - [Roadmap to provide support for xcframeworks 2019/2020](https://github.com/Carthage/Carthage/issues/2890)
-
-
-* **Swift Package Manager**
-
-    - [Proposal (SE-0272 Package Manager Binary Dependencies) was already implemented, but is not part of Swift 5.2 release](https://forums.swift.org/t/se-0272-package-manager-binary-dependencies/30753)
-    - Swift Package Manager currently doesnt support binary dependencies
-    - Based on [this](https://forums.swift.org/t/accepted-with-modifications-se-0272-package-manager-binary-dependencies/31926/9) response from Apple engineer, the support for binary dependencies will be introduced in the next major release of Swift, probably `Swift 6.0` & hopefully also in next version of Xcode -> `Xcode 12.0` (my personal guess 🤞)
 
 
 ---
@@ -220,6 +234,9 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 
 ## Binary Frameworks in Swift
 https://developer.apple.com/videos/play/wwdc2019/416/
+
+## Distribute binary frameworks as Swift packages
+https://developer.apple.com/wwdc20/10147
 
 ## ABI Stability & Module Stability - swift.org
 https://swift.org/blog/abi-stability-and-more/
