@@ -258,3 +258,11 @@ https://gankra.github.io/blah/swift-abi/
 
 ## Presentation about Dependency management in Xcode 11
 https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
+
+
+## 🍕 Support the author of this repo
+
+If you want to support me, please consider to tap on the following ad.
+All my open source activities are made in my own free time, so if you like what I'm doing, feel free to support me. Thanks!
+
+<a href="https://tracking.gitads.io/?repo=xcframeworks"><img src="https://images.gitads.io/xcframeworks" alt=“GitAds”/></a>
