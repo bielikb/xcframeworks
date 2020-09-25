@@ -1,0 +1,37 @@
+BCSymbolMap Version: 2.0
+Apple clang version 12.0.0 (clang-1200.0.32.2)
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.0.sdk
+iPhoneSimulator14.0.sdk
+/Users/bbielik/Library/Developer/Xcode/DerivedData/XCFrameworks-cpuavyxyllwpvzaejoqpkyxljscv/Build/Intermediates.noindex/ArchiveIntermediates/DynamicFramework/IntermediateBuildFilesPath/DynamicFramework.build/Release-iphonesimulator/DynamicFramework.build/DerivedSources/DynamicFramework_vers.c
+/Users/bbielik/Code/repos/own/XCFrameworks/DynamicFramework
+__METACLASS_DATA__TtC16DynamicFramework16DynamicFramework
+__DATA__TtC16DynamicFramework16DynamicFramework
+_$s16DynamicFrameworkMXM
+_$s16DynamicFrameworkAACMf
+_symbolic _____ 16DynamicFrameworkAAC
+_$s16DynamicFrameworkAACMF
+__swift_FORCE_LOAD_$_swiftFoundation_$_DynamicFramework
+__swift_FORCE_LOAD_$_swiftObjectiveC_$_DynamicFramework
+__swift_FORCE_LOAD_$_swiftDarwin_$_DynamicFramework
+__swift_FORCE_LOAD_$_swiftCoreFoundation_$_DynamicFramework
+__swift_FORCE_LOAD_$_swiftDispatch_$_DynamicFramework
+__swift_FORCE_LOAD_$_swiftCoreGraphics_$_DynamicFramework
+___swift_reflection_version
+_objc_classes
+Apple clang version 12.0.0 (clang-1200.0.30.1)
+<swift-imported-modules>
+Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+/Users/bbielik/Code/repos/own/XCFrameworks/DynamicFramework/DynamicFramework/Sum.swift
+$s16DynamicFrameworkAACMa
+<compiler-generated>
+deinit
+sum
+Swift runtime failure: arithmetic overflow
+init
+_$s7PackageMXM
+_$s7PackageAAVMf
+_symbolic _____ 7PackageAAV
+_$s7PackageAAVMF
+/Users/bbielik/Code/repos/own/XCFrameworks/Package
+/Users/bbielik/Code/repos/own/XCFrameworks/Package/Sources/Package/Package.swift
+$s7PackageAAVMa
