@@ -2,6 +2,7 @@
 This is a demonstration of creating and integrating the xcframeworks and their co-op with static libraries and Swift packages within the same Xcode project.
 
 ## Table of contents
+* [Changelog](#Changelog)
 * [Introduction: New .xcframework format](#Introduction:-New-.xcframework-format)
 * [How to create .xcframework that contain iOS + iOS Simulator platforms](#How-to-create-.xcframework-that-contains-iOS-+-iOS-Simulator-platforms)
 * [Create xcframework using fastlane plugin](#Create-xcframework-using-fastlane-plugin)
@@ -12,9 +13,18 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 * [Materials](#Materials)
 
 ## Pre-requisities
-- Xcode 11
-- Swift 5.1 toolchain - run `sudo xcode-select -s path/to/Xcode11` in terminal.
+- Xcode 11 and above
+- Swift 5.1 and above
 - Github/Gitlab/Bitbucket account set in Xcode's account preferences
+
+# Changelog
+
+| What's new | Xcode version | Swift version | Description |
+|---|---|---|---|
+| Module stable binaries | Xcode 11 | Swift 5.1 | Library evolution allows the library authors to distribute module stable Swift binaries |
+| New version of .swiftinterface interface | Xcode 11.4 | Swift 5.2 | New annotations added to Swift `@_inheritsConvenienceInitializers`, `@_hasMissingDesignatedInitializers`. ⚠️ Module interfaces aren't backwards compatible, clients using Swift 5.1.3 and below won't be able to compile Swift binaries compiled with Swift 5.2. More info [here](https://forums.swift.org/t/cant-use-framework-compiled-with-swift-5-2-in-swift-5-1-3-project/35248/6) |
+| Support for binary dependencies in SwiftPM | Xcode 12.0 | Swift 5.3 | Swift Package Manager now supports declaring binary targets in `Package.swift` |
+| Debug symbols | Xcode 12.0 | Swift 5.3 | Debug symbols (dSYMs, BCSymbolMaps) can be included within the xcframework through new `-debug-symbols <absolute path>` flag |
 
 # Introduction: New .xcframework format
 
@@ -23,7 +33,7 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 - Swift 5.1 and above
 
 ## Motivation & consequences
-- introduce standard format to gain module stability for your Swift frameworks & libraries. Library author & client of a library are no longer required to use the same version of compiler
+- introduce standard format to gain module stability for your Swift frameworks & libraries. Library author & client of a library are no longer required to use the same version of compiler. Please note, that the module stable interfaces are only forward-compatible
 - provide seamless experience when creating & integrating the module stable frameworks
 - support all Apple platforms and architectures
 NOTE: while `fat framework` can support module stability, the `lipo` command line tool, that is used to fuse the frameworks together, is not officially supported by Apple. Also using `lipo` tools falls short in cases of fusing two platforms with similar architectures together - e.g. arm6 architecture can be found in iOS + watchOS.
@@ -35,9 +45,11 @@ NOTE: while `fat framework` can support module stability, the `lipo` command lin
 
 This format bundles module-stable frameworks (.swiftinterface) for the platforms of interest.
 
-The [Info.plist](./Products/xcframeworks/DynamicFramework.xcframework) contains all available frameworks in a bundle specified by library identifiers. This information is used by Xcode during the linking time => xcodebuild picks the right framework for the platform we're building against
+The [Info.plist](./Products/xcframeworks/DynamicFramework.xcframework) contains all available frameworks in a bundle specified by library identifiers. This information is used by Xcode during the linking time => xcodebuild picks the right framework for the platform we're building against.
+Since Xcode 12.0 the xcframework can contain also debug symbols (dSYMs, BCSymbolMaps).
 
 The structure of xcframework looks as shown below
+
 ![xcframework](./res/xcframework.png)
 
 ## Size of xcframework
@@ -122,7 +134,9 @@ Binaries in `.xcarchive` are located under:
 ```
 xcodebuild -create-xcframework \
            -framework My-iOS.framework \
+           -debug-symbols <absolute path to dSYM or BCSymbolMaps folder in the xcarchive>
            -framework My-iOS_Simulator.framework \
+           -debug-symbols <absolute path to dSYM or BCSymbolMaps folder in the xcarchive>
            -output My.xcframework
 ```
 
@@ -149,12 +163,15 @@ lane :export_xcframework do
   create_xcframework(
     workspace: 'path/to/your.xcworkspace',
     scheme: 'name of your scheme',
-    include_bitcode: true,
     destinations: ['iOS', 'maccatalyst'],
     xcframework_output_directory: 'Products/xcframeworks'
   )
 end
 ```
+
+_NOTE:_
+
+[Version 1.1.0](https://github.com/bielikb/fastlane-plugin-create_xcframework/releases/tag/v1.1.0) of the fastlane plugin includes support for `debug symbols`.
 
 You can try out the plugin in this project by calling following command:
 ```
@@ -176,6 +193,7 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 | Use of unimplemented initializer 'init()' for class | error - thrown at dynamic linking time | Objective-C ABI public classes need to provide `public` init | Provide `public` init override for your public class:  `override public init()` |
 | @objc' class method in extension of subclass of `Class X` requires iOS 13.0.0 | error | Rules for interoperability with Objective-C has changed since iOS 13.0.0. and currently doesn't support `@objc` interoperability in class extensions. There's open question on [Swift forums](https://forums.swift.org/t/xcframework-requires-to-target-ios-13-for-inter-framework-dependencies-with-objective-c-compatibility-tested-with-xcode-11-beta-7/28539) | Move/Remove `@objc` declaration from your Swift class extension |
 | scoped imports are not yet supported in module interfaces | warning | Read more about Swift import declarations here: https://nshipster.com/import/ | Import the module instead of specific declaration. For example: change `import class MyModule.MyClass` to `import MyModule` |
+| [Can’t use framework compiled with Swift 5.2 in Swift 5.1.3 project](https://forums.swift.org/t/cant-use-framework-compiled-with-swift-5-2-in-swift-5-1-3-project/35248) | error - thrown at linking time | The xcframework was generated using the Swift 5.2 and above. Module stable interfaces are not backwards-compatible. | Update your Xcode to Xcode 11.4 and above or generate module stable binary using Xcode 11.3 and below |
 
 ---
 
@@ -187,7 +205,7 @@ Here's the list of compiler errors I got across when integrating built xcframewo
     - [binary targets are supported since Xcode 12.0](https://developer.apple.com/wwdc20/10147)
     - define binary target in your Swift Package manifest
     - zipped xcframework filename should contain the version number
-    - compute the checksum by calling `swift package compute-checksum <xcframework filename`
+    - compute the checksum by calling `swift package compute-checksum <xcframework filename`.
     - use the computed checksum in your Swift Package manifest, when referencing the xcframework remotely.
 
 
@@ -237,6 +255,7 @@ https://developer.apple.com/videos/play/wwdc2019/416/
 
 ## Distribute binary frameworks as Swift packages
 https://developer.apple.com/wwdc20/10147
+https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages
 
 ## ABI Stability & Module Stability - swift.org
 https://swift.org/blog/abi-stability-and-more/
@@ -258,11 +277,3 @@ https://gankra.github.io/blah/swift-abi/
 
 ## Presentation about Dependency management in Xcode 11
 https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
-
-
-## 🍕 Support the author of this repo
-
-If you want to support me, please consider to tap on the following ad.
-All my open source activities are made in my own free time, so if you like what I'm doing, feel free to support me. Thanks!
-
-<a href="https://tracking.gitads.io/?repo=xcframeworks"><img src="https://images.gitads.io/xcframeworks" alt=“GitAds”/></a>
