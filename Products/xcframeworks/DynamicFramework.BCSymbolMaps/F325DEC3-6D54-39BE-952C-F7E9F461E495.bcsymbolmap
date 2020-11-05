@@ -1,7 +1,7 @@
 BCSymbolMap Version: 2.0
-Apple clang version 12.0.0 (clang-1200.0.32.2)
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.0.sdk
-iPhoneSimulator14.0.sdk
+Apple clang version 12.0.0 (clang-1200.0.32.21)
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk
+iPhoneSimulator14.1.sdk
 /Users/bbielik/Library/Developer/Xcode/DerivedData/XCFrameworks-cpuavyxyllwpvzaejoqpkyxljscv/Build/Intermediates.noindex/ArchiveIntermediates/DynamicFramework/IntermediateBuildFilesPath/DynamicFramework.build/Release-iphonesimulator/DynamicFramework.build/DerivedSources/DynamicFramework_vers.c
 /Users/bbielik/Code/repos/own/XCFrameworks/DynamicFramework
 __METACLASS_DATA__TtC16DynamicFramework16DynamicFramework
