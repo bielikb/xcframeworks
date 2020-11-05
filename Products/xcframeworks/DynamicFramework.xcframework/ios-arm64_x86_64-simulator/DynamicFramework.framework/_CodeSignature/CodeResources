@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		OyUEKfJzM3SQmfKPZjLy2G3dhxI=
+		J86IxshL3dAKKRivsc1fCnUFHy0=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		oglKp5I3YMTpCwaOAhn9Pv0NBbY=
+		telckKINAnmT9ZjQAl0lyfi4rtM=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		oglKp5I3YMTpCwaOAhn9Pv0NBbY=
+		telckKINAnmT9ZjQAl0lyfi4rtM=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		xrD7bIa7BpFLfDyTvJzetVKu6nU=
+		9zFFTWYdMvrQJpkJ/PX8ddIV78Y=
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		xrD7bIa7BpFLfDyTvJzetVKu6nU=
+		9zFFTWYdMvrQJpkJ/PX8ddIV78Y=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -88,7 +88,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6r+K9QSyrAM0Cs5fBSRaWkTqslARkgp9A73En4uUr4g=
+			iiao9L/b1UtBK/7GPCEJo6UZgdOv3VIv/171PKGcZww=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/arm64.swiftdoc</key>
@@ -109,7 +109,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6r+K9QSyrAM0Cs5fBSRaWkTqslARkgp9A73En4uUr4g=
+			iiao9L/b1UtBK/7GPCEJo6UZgdOv3VIv/171PKGcZww=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -130,7 +130,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cdBZxEkRmzeBrm30rxifaUXFPoexjq2XogHo4faFSU4=
+			+8N0ArFOx7ZUqz48ZS2slOnaIySX/gWWv4uXofZd8qw=
 			</data>
 		</dict>
 		<key>Modules/DynamicFramework.swiftmodule/x86_64.swiftdoc</key>
@@ -151,7 +151,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cdBZxEkRmzeBrm30rxifaUXFPoexjq2XogHo4faFSU4=
+			+8N0ArFOx7ZUqz48ZS2slOnaIySX/gWWv4uXofZd8qw=
 			</data>
 		</dict>
 	</dict>

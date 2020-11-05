@@ -4,7 +4,6 @@ lane :export_xcframework do
   create_xcframework(
     workspace: 'XCFrameworks.xcworkspace',
     scheme: 'DynamicFramework',
-    include_bitcode: true,
     destinations: ['iOS', 'maccatalyst'],
     xcframework_output_directory: 'Products/xcframeworks'
   )

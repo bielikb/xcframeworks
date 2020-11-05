@@ -5,7 +5,7 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: create_xcframework" time="36.921391">
+      <testcase classname="fastlane.lanes" name="0: create_xcframework" time="29.052391">
         
       </testcase>
     
