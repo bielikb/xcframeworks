@@ -129,14 +129,14 @@ Binaries in `.xcarchive` are located under:
 
 ###### 1. Specify all frameworks or libraries that you want to add into .xcframework
 
-###### 2. Specify the outpath paht using `-output` argument. Don't forget to add `.xcframework` extension to your output path.
+###### 2. Specify the outpath path using `-output` argument. Don't forget to add `.xcframework` extension to your output path.
 
 ```
 xcodebuild -create-xcframework \
            -framework My-iOS.framework \
-           -debug-symbols <absolute path to dSYM or BCSymbolMaps folder in the xcarchive>
+           -debug-symbols <absolute path to dSYM or BCSymbolMaps folder in the xcarchive> # available from XCode 12.0+
            -framework My-iOS_Simulator.framework \
-           -debug-symbols <absolute path to dSYM or BCSymbolMaps folder in the xcarchive>
+           -debug-symbols <absolute path to dSYM or BCSymbolMaps folder in the xcarchive> # available from XCode 12.0+
            -output My.xcframework
 ```
 
@@ -194,6 +194,7 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 | @objc' class method in extension of subclass of `Class X` requires iOS 13.0.0 | error | Rules for interoperability with Objective-C has changed since iOS 13.0.0. and currently doesn't support `@objc` interoperability in class extensions. There's open question on [Swift forums](https://forums.swift.org/t/xcframework-requires-to-target-ios-13-for-inter-framework-dependencies-with-objective-c-compatibility-tested-with-xcode-11-beta-7/28539) | Move/Remove `@objc` declaration from your Swift class extension |
 | scoped imports are not yet supported in module interfaces | warning | Read more about Swift import declarations here: https://nshipster.com/import/ | Import the module instead of specific declaration. For example: change `import class MyModule.MyClass` to `import MyModule` |
 | [Can’t use framework compiled with Swift 5.2 in Swift 5.1.3 project](https://forums.swift.org/t/cant-use-framework-compiled-with-swift-5-2-in-swift-5-1-3-project/35248) | error - thrown at linking time | The xcframework was generated using the Swift 5.2 and above. Module stable interfaces are not backwards-compatible. | Update your Xcode to Xcode 11.4 and above or generate module stable binary using Xcode 11.3 and below |
+| Incompatible module | error - thrown at linking time | The module built for iOS Simulator shares the same arch slice as the new M1. | Exclude arm64 slice when building your xcframework by specifying following build setting: EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64 |
 
 ---
 
@@ -203,16 +204,17 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 * **Swift Package Manager**
 
     - [binary targets are supported since Xcode 12.0](https://developer.apple.com/wwdc20/10147)
-    - define binary target in your Swift Package manifest
+    - define binary target in your Swift Package manifest.
     - zipped xcframework filename should contain the version number
-    - compute the checksum by calling `swift package compute-checksum <xcframework filename`.
-    - use the computed checksum in your Swift Package manifest, when referencing the xcframework remotely.
+    - compute the binary checksum by calling `swift package compute-checksum <xcframework filename`.
+    - use the computed binary checksum in your Swift Package manifest, when referencing the xcframework remotely.
 
 
 * **CocoaPods**
-    - supported since v1.9.1
+    - supported since v1.9.1, several important bugfixes came with the version [1.10.0](https://github.com/CocoaPods/CocoaPods/releases/tag/1.10.0)
+    - As a vendor, you might consider limiting the cocoapods pods audience to avoid any unnecessary issues by specifying the minimum cocoapods version required: eg `spec.cocoapods_version = '>= 1.10.0'``
     - use `vendored_frameworks` to specify you xcframework(s) in your podspec. e.g. `spec.vendored_frameworks = 'DynamicFramework.xcframework'`
-    - specify paths to your dSYMs and xcframework in `spec.preserve_paths = [...]`
+    - specify paths to your dSYMs and xcframework in `spec.preserve_paths = [...]`, since Xcode 12 the xcframeworks can contain symbol files, so there's no need to distribute the symbol files explicitly
 
 * **Carthage**  
 
