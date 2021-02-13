@@ -199,7 +199,10 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 ---
 
 # Distribution of xcframeworks
-* **manually** - already available
+
+* **manually**
+
+Distribution of xcframeworks using the native dependency manager `Swift Package Manager` or the 3rd party dependency managers does come with several reported integration issues. Manual integration seems sofar to be the safest/bullet-proof integration option.
 
 * **Swift Package Manager**
 
@@ -211,16 +214,15 @@ Here's the list of compiler errors I got across when integrating built xcframewo
 
 
 * **CocoaPods**
-    - supported since v1.9.1, several important bugfixes came with the version [1.10.0](https://github.com/CocoaPods/CocoaPods/releases/tag/1.10.0)
+
+    - supported since v1.9.1, several important bug-fixes came with the version [1.10.0](https://github.com/CocoaPods/CocoaPods/releases/tag/1.10.0)
     - As a vendor, you might consider limiting the cocoapods pods audience to avoid any unnecessary issues by specifying the minimum cocoapods version required: eg `spec.cocoapods_version = '>= 1.10.0'``
     - use `vendored_frameworks` to specify you xcframework(s) in your podspec. e.g. `spec.vendored_frameworks = 'DynamicFramework.xcframework'`
     - specify paths to your dSYMs and xcframework in `spec.preserve_paths = [...]`, since Xcode 12 the xcframeworks can contain symbol files, so there's no need to distribute the symbol files explicitly
 
 * **Carthage**  
 
-    - Carthage doesn't support xcframework format yet.
-    - [Roadmap to provide support for xcframeworks 2019/2020](https://github.com/Carthage/Carthage/issues/2890)
-
+    - Since version [0.37.0](https://github.com/Carthage/Carthage/releases/tag/0.37.0) Carthage produces xcframeworks for open-sourced depdendencies when `--use-xcframeworks` flag is passed. It doesn't support fetching already existing xcframeworks.
 
 ---
 
@@ -274,8 +276,8 @@ https://github.com/apple/swift/blob/master/docs/LibraryEvolution.rst
 ## Swift Unwrapped - Swift 5.1 with Doug Gregor (Library evolution, ...)
 https://spec.fm/podcasts/swift-unwrapped/308610
 
-## Alexis Beingessner- How Swift Achieved Dynamic Linking Where Rust Couldn't
+## Alexis Beingessner - How Swift Achieved Dynamic Linking Where Rust Couldn't
 https://gankra.github.io/blah/swift-abi/
 
-## Presentation about Dependency management in Xcode 11
-https://www.slideshare.net/BorisBielik/dependency-management-in-xcode-11-153424888
+## Alex Grebenyuk - XCFrameworks (case-study about Distribution of xcframeworks as Swift Packages for specific case)
+https://kean.blog/post/xcframeworks-caveats
