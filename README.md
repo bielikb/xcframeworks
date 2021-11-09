@@ -36,10 +36,9 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 - introduce standard format to gain module stability for your Swift frameworks & libraries. Library author & client of a library are no longer required to use the same version of compiler. Please note, that the module stable interfaces are only forward-compatible
 - provide seamless experience when creating & integrating the module stable frameworks
 - support all Apple platforms and architectures
-NOTE: while `fat framework` can support module stability, the `lipo` command line tool, that is used to fuse the frameworks together, is not officially supported by Apple. Also using `lipo` tools falls short in cases of fusing two platforms with similar architectures together - e.g. arm6 architecture can be found in iOS + watchOS.
 
-- **STOP** creating & using `fat frameworks` == no more `lipo`.
-- **STOP** slicing frameworks by stripping the architectures in your projects' targets' custom `build-phase`.
+- **STOP** creating & using `fat dynamic frameworks`. (library author)
+- **STOP** slicing frameworks by stripping the architectures in your projects' targets' custom `build-phase`. (integrator)
 
 ## Contents of xcframework
 
