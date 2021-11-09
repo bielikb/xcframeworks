@@ -88,7 +88,7 @@ However, if you're not interested in the details of the process of `how` the xcf
 xcodebuild archive \
 -workspace MyWorkspace.xcworkspace \
 -scheme MyScheme \
--destination destination="generic/platform=iOS" \
+-destination "generic/platform=iOS" \
 -archivePath "archives/MyScheme-iOS" \
 SKIP_INSTALL=NO \
 BUILD_LIBRARY_FOR_DISTRIBUTION=YES
@@ -99,7 +99,7 @@ BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 ```swift
 xcodebuild archive \
 ..
--destination destination="generic/platform=iOS Simulator" \
+-destination "generic/platform=iOS Simulator" \
 -archivePath "archives/MyScheme-iOS-Simulator" \
 ..
 ```
@@ -109,7 +109,7 @@ xcodebuild archive \
 ```
 xcodebuild archive \
 ..
--destination destination="generic/platform=iOS" \
+-destination "generic/platform=iOS" \
 -archivePath "archives/MyScheme-iOS" \
 ..
 ```
