@@ -75,7 +75,7 @@ xcframework supports all Apple platforms & their variants - `iOS`, `maccatalyst`
 
 ---
 
-# How to create .xcframework that contain iOS + iOS Simulator platforms
+# How to create .xcframework that contains iOS + iOS Simulator platforms
 
 This section describes the process of creating the xcframework by archiving & creating the final xcframeworks from 2 archives built for `iOS` & `iOS Simulator`.
 
