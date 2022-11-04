@@ -3,13 +3,13 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 
 ## Table of contents
 * [Changelog](#Changelog)
-* [Introduction: New .xcframework format](#Introduction:-New-.xcframework-format)
-* [How to create .xcframework that contain iOS + iOS Simulator platforms](#How-to-create-.xcframework-that-contains-iOS-+-iOS-Simulator-platforms)
+* [Introduction: New .xcframework format](#Introduction-New-xcframework-format)
+* [How to create .xcframework that contains iOS + iOS Simulator platforms](#How-to-create-xcframework-that-contains-iOS--iOS-Simulator-platforms)
 * [Create xcframework using fastlane plugin](#Create-xcframework-using-fastlane-plugin)
-* [Testing & Troubleshooting](#Testing-&-Troubleshooting)
+* [Testing & Troubleshooting](#Testing--Troubleshooting)
 * [Distribution of xcframeworks](#Distribution-of-xcframeworks)
-* [How to integrate .xcframework in your project](#How-to-integrate-.xcframework-in-your-project)
-* [What's in XCFrameworks workspace](#What's-in-XCFrameworks-workspace)
+* [How to integrate .xcframework in your project](#How-to-integrate-xcframework-in-your-project)
+* [What's in XCFrameworks workspace](#Whats-in-XCFrameworks-workspace)
 * [Materials](#Materials)
 
 ## Pre-requisities
@@ -75,7 +75,7 @@ xcframework supports all Apple platforms & their variants - `iOS`, `maccatalyst`
 
 ---
 
-# How to create .xcframework that contain iOS + iOS Simulator platforms
+# How to create .xcframework that contains iOS + iOS Simulator platforms
 
 This section describes the process of creating the xcframework by archiving & creating the final xcframeworks from 2 archives built for `iOS` & `iOS Simulator`.
 
