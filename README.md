@@ -6,7 +6,7 @@ This is a demonstration of creating and integrating the xcframeworks and their c
 * [Introduction: New .xcframework format](#Introduction-New-xcframework-format)
 * [How to create .xcframework that contains iOS + iOS Simulator platforms](#How-to-create-xcframework-that-contains-iOS--iOS-Simulator-platforms)
 * [Create xcframework using fastlane plugin](#Create-xcframework-using-fastlane-plugin)
-* [Testing & Troubleshooting](#Testing-&-Troubleshooting)
+* [Testing & Troubleshooting](#Testing--Troubleshooting)
 * [Distribution of xcframeworks](#Distribution-of-xcframeworks)
 * [How to integrate .xcframework in your project](#How-to-integrate-.xcframework-in-your-project)
 * [What's in XCFrameworks workspace](#What's-in-XCFrameworks-workspace)
